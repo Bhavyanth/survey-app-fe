@@ -1,0 +1,57 @@
+<!-- Mogili Spoorthy Reddy,Sahithi Edunuri, Harshini Reddy Revuri, Mogili Keerthy Reddy-->
+<!-- Html template  -->
+<div class="home-container" >
+  <div class="toolbar">
+    <span class="content">List of Surveys</span>
+    <div style="flex: 1;"></div>
+</div>
+<!--To display table format-->
+<div class="home-container" *ngIf="surveys.length > 0; else absentSurveys">
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Liked</th>
+        <th>Interests</th>
+        <th>Recommendation</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let survey of surveys">
+        <td>{{ survey.firstName }}</td>
+        <td>{{ survey.lastName }}</td>
+        <td>{{ survey.city }}</td>
+        <td>{{ survey.state }}</td>
+        <td>{{ survey.zip }}</td>
+        <td>{{ survey.email }}</td>
+        <td>{{ survey.date }}</td>
+        <td>{{ survey.likeAbtCampus }}</td>
+        <td>{{ survey.interestedInUni }}</td>
+        <td>{{ survey.recommendation }}</td>
+        <td>{{ survey.comments }}</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+</div>
+<div class="button-container">
+  <div class="center">
+    <!--button to go to home -->
+<a routerLink="/"><button class="btn btn-success pull-right" >Home</button></a>
+</div>
+</div>
+<ng-template #absentSurveys>
+  <p>oops !!!absence of survey</p>
+</ng-template>
+<ngx-spinner></ngx-spinner>
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+  
+  <p> Mogili Spoorthy Reddy,Sahithi Edunuri, Harshini Reddy Revuri, Mogili Keerthy Reddy </p>
+</footer>

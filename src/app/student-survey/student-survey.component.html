@@ -1,0 +1,131 @@
+<!-- Mogili Spoorthy Reddy,Sahithi Edunuri, Harshini Reddy Revuri, Mogili Keerthy Reddy-->
+<!-- Html template for student survey form -->
+<div class="home-container">
+  <div class="toolbar">
+    <span class="content">Student Survey Form</span>
+    <div style="flex: 1;"></div>
+</div>
+
+<form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <!--required components of the form-->
+    <legend>Personal Information - All fields are required <span class="text-danger">*</span> </legend>
+  <div class="form-group">
+    <label>First name:</label><span class="text-danger">*</span>
+    <input type="text" id="firstName" class="form-control" formControlName="firstName" placeholder="First Name">
+    <div *ngIf="surveyForm.get('firstName')?.invalid && surveyForm.get('firstName')?.touched"
+         class="text-danger">First name is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>Last name:</label><span class="text-danger">*</span>
+    <input type="text" id="lastName" class="form-control" formControlName="lastName" placeholder="Last Name">
+    <div *ngIf="surveyForm.get('lastName')?.invalid && surveyForm.get('lastName')?.touched"
+         class="text-danger">Last name is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>Street address:</label><span class="text-danger">*</span>
+    <input type="text" id="streetAddress" class="form-control" formControlName="streetAddress" placeholder="Address">
+    <div *ngIf="surveyForm.get('streetAddress')?.invalid && surveyForm.get('streetAddress')?.touched"
+         class="text-danger">Street address is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>City:</label><span class="text-danger">*</span>
+    <input type="text" id="city" class="form-control" formControlName="city" placeholder="City">
+    <div *ngIf="surveyForm.get('city')?.invalid && surveyForm.get('city')?.touched"
+         class="text-danger">City is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>State:</label><span class="text-danger">*</span>
+    <input type="text" id="state" class="form-control" formControlName="state" placeholder="State">
+    <div *ngIf="surveyForm.get('state')?.invalid && surveyForm.get('state')?.touched"
+         class="text-danger">State is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>Zip:</label><span class="text-danger">*</span>
+    <input type="text" id="zip" class="form-control" formControlName="zip" placeholder="Zip Code">
+    <div *ngIf="surveyForm.get('zip')?.invalid && surveyForm.get('zip')?.touched"
+         class="text-danger">Zip code is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>Telephone number:</label><span class="text-danger">*</span>
+    <input type="tel" id="telephoneNumber" class="form-control" formControlName="telephoneNumber" placeholder="Telephone Number">
+    <div *ngIf="surveyForm.get('telephoneNumber')?.invalid && surveyForm.get('telephoneNumber')?.touched"
+         class="text-danger">Telephone number is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>Email:</label><span class="text-danger">*</span>
+    <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
+    <div *ngIf="surveyForm.get('email')?.invalid && surveyForm.get('email')?.touched"
+         class="text-danger">Email is required</div>
+  </div>
+
+  <div class="form-group">
+    <label>Date of Survey</label><span class="text-danger">*</span>
+    <input type="date" id="date" class="form-control" placeholder={{date}}/>
+    <div *ngIf="surveyForm.get('date')?.invalid && surveyForm.get('date')?.touched"
+         class="text-danger">Date is required</div>
+  </div>
+
+</fieldset>
+
+<fieldset>
+  <legend>What did you like most about the campus?</legend>
+  <div class="form-group">
+    <label>What did you like most about the campus?</label>
+    <div class="form-check" *ngFor="let item of campusOption">
+      <input class="form-check-input" type="checkbox" [id]="item.value" (change)="onCheckboxChange($event)" [value]="item.value" formArrayName="likeAbtCampus">
+      <label class="form-check-label" [for]="item.value">{{item.name}}</label>
+    </div>
+    <div *ngIf="surveyForm.get('likeAbtCampus')?.invalid && surveyForm.get('likeAbtCampus')?.touched"
+         class="text-danger">Please select at least one option</div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>How did you become interested in our university?</legend>
+  <div class="form-group">
+    <label>How did you become interested in our university?</label>
+    <div class="form-check" *ngFor="let item of interestedInUnis">
+      <input class="form-check-input" type="radio" [id]="item" [value]="item" formControlName="interestedInUni">
+      <label class="form-check-label" [for]="item">{{item}}</label>
+    </div>
+    <div *ngIf="surveyForm.get('interestedInUni')?.invalid && surveyForm.get('interestedInUni')?.touched"
+         class="text-danger">Please select one option</div>
+  </div>
+  </fieldset>
+
+
+  <div class="form-group">
+    <label for="recommendation">How likely are you to recommend this school to other prospective students?</label>
+    <select id="recommendation" class="form-control" formControlName="recommendation">
+      <option disabled selected value="">Select an option</option>
+      <option value="Very Likely">Very Likely</option>
+      <option value="Likely">Likely</option>
+      <option value="Unlikely">Unlikely</option>
+    </select>
+    <div *ngIf="surveyForm.get('recommendation')?.invalid && surveyForm.get('recommendation')?.touched"
+         class="text-danger">Please select an option</div>
+  </div>
+
+  <div class="form-group">
+    <label for="comments">Additional Comments</label>
+    <textarea id="comments" class="form-control" formControlName="comments"></textarea>
+  </div>
+
+  <!--submit and cancel buttons -->
+  <button type="submit" class="btn btn-primary" [disabled]="!surveyForm.valid">Submit</button>
+  <button type="button" class="btn btn-secondary" (click)="onCancel()">Reset</button>
+</form>
+<ngx-spinner></ngx-spinner>
+</div>
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+  
+  <p> Mogili Spoorthy Reddy,Sahithi Edunuri, Harshini Reddy Revuri, Mogili Keerthy Reddy </p>
+</footer>

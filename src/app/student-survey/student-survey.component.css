@@ -1,0 +1,161 @@
+/*Mogili Spoorthy Reddy,Sahithi Edunuri, Harshini Reddy Revuri, Mogili Keerthy Reddy*/
+/* Styles for Survey Form component */
+
+form {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin: 1rem;
+}
+
+.form-label {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control:disabled {
+  opacity: 0.5;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}
+
+.checkbox-container {
+  margin-bottom: 1rem;
+}
+
+.checkbox-label {
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+
+.checkbox-input {
+  margin-right: 0.5rem;
+}
+
+.checkbox-input:checked+.checkbox-label::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #28a745;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.checkbox-input:focus+.checkbox-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+
+.radio-container {
+  margin-bottom: 1rem;
+}
+
+.radio-label {
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+
+.radio-input {
+  margin-right: 0.5rem;
+}
+
+.radio-input:checked+.radio-label::before {
+  content: '\f192';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #007bff;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.radio-input:focus+.radio-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(4, 43, 85, 0.555);
+}
+form button {
+  display: block;
+  width: 20%;
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 250px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #4758B8;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0069d9;
+}
+
+form button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.text-danger {
+  color: red;
+}
+
+.home-container {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5%;
+
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #2d1856;
+  color: white;
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  margin: auto;
+  padding: 0 10px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: x-large;
+}
