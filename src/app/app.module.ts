@@ -15,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CommonModule } from '@angular/common'; 
 
-// List of modules required for functional components
 
 @NgModule({
   declarations: [
